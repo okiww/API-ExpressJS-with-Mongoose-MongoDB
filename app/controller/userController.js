@@ -17,16 +17,32 @@ exports.getAll = function(req, res){
  	User.find(function(err, user) {
  		if (err)
  		res.send(err);
- 		console.log(err);
 		res.json(user);
  	});
 };
 
 exports.findByName = function(req, res){
-	console.log(req.params.name)
  	User.findOne({name: req.params.name}, function(err, user){
  	if (err)
  		res.send(err);
  		res.json(user);
  	});
+};
+
+exports.findAndUpdate = function(req, res) {
+ 	User.findOne({name: req.params.name}, function(err, user) {
+	  if (!user)
+	  	res.send('could not load Document');
+	  else {
+	    // do your updates here
+	    user.modified = new User();
+	    user.name = req.body.name;
+
+	    user.save(function(err) {
+	      if (err)
+	 		res.send(err);
+			res.json(user);
+	    });
+	  }
+	});
 };

@@ -12,5 +12,7 @@ module.exports = function(app, express) {
  	router.route('/user/:name')
  	.get(user.findByName);
 
+ 	router.route('/user/edit/:name')
+ 	.put(user.findAndUpdate);
 	return router;
 };
