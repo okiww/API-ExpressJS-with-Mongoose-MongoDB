@@ -1,7 +1,18 @@
 # API-ExpressJS-with-Mongoose-MongoDB
 This is simple API using ExpressJS
 
-run npm install;
-and then npm start to running this project at localhost:3000/
+Type this for your terminal :
+```
+npm install
+npm start
+```
 
-remember : before running this project, make sure you have installed mongodb
+**Before running this project, make sure you have installed mongodb on your local**
+
+Here simple code for create database on MongoDB :
+
+```
+use <your_db_name>
+db.createCollection("mycollection")
+show collections
+```
